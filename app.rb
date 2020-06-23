@@ -1,5 +1,5 @@
 require 'sinatra'
-get '/' do 
+get '/' do
 "hello!"
 end
 
@@ -15,8 +15,14 @@ get '/open/close' do
     "same business"
 end
 
-get '/cat' do
+get '/random-cat' do
   @name_generator = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
+end
+
+get '/named-cat' do
+  p params
+  @name_generator = params[:name]
   erb(:index)
 end
 
